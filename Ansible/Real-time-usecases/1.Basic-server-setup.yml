@@ -1,0 +1,27 @@
+# basic server setup using ansible
+- name: Basic server setup
+  hosts: servers
+  become: yes #becoming root user
+  tasks:
+  - name: update apt cache
+    apt: 
+      update_cache: yes
+  
+  - name: Install necessary packages
+    apt: 
+      name: "{{ item }}"
+      state: present 
+    with_items:
+      - vim 
+      - git 
+      - curl
+    
+  - name: configure timezone
+    timezone:
+      name: India/New_Delhi
+
+  - name: Ensure NTP services is running
+    service: 
+      name: ntp
+      state: started
+      enabled: yes

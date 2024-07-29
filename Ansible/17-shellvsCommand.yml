@@ -1,0 +1,19 @@
+
+# Shell module: It will be use shell environment, means we can use redirections(>), pipes(|), or other shell variables 
+
+# Command module: It will run the commands but can't able to use the shell environments like >;pipes or variables 
+
+- name: commmand vs shell
+  hosts: localhost
+  tasks:
+  - name: command module
+    ansible.builtin.command: "echo 'Hi, this is from command module' > /tmp/command.txt" 
+
+  - name: shell moodule
+    ansible.builtin.command: "echo 'Hi, this is from command module' > /tmp/shell.txt" 
+
+# simple commands without the need of shell variables, environment and features like redirections, pipes, then go for command module
+
+# if we need to run complex commands or scripts go for shell module
+
+# whatever works in command module, it will work in shell module . but, viceversa not possible

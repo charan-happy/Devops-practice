@@ -1,0 +1,17 @@
+- name: Deploy a web appplication
+  hosts: webservers
+  become: yes
+  tasks:
+  - name: copy index.html to webserver
+    copy:
+      src: /local/path/to/index.html
+      dest: /var/www/html/index.html
+      owner: www-data
+      group: www-data
+      mode: '0644'
+
+  - name: Ensure Apache server is running 
+    service:
+      name: apache2
+      state: started
+      enabled: yes

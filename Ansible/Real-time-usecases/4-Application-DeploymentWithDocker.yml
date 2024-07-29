@@ -1,0 +1,17 @@
+# playbook to deploy dockerized application using Ansible and Docker modules
+- name: Deploy Dockerized Application
+  hosts: docker-servers
+  become: yes
+  tasks:
+  - name: Pull Docker image
+    docker_image:
+      name: myapp_image
+      source: pull 
+    
+  - name: Run Docker container
+    docker_container:
+      name: myapp_container
+      image: myapp_image
+      state: started
+      ports:
+        - "8080:80"

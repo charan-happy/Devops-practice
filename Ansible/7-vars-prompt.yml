@@ -1,0 +1,14 @@
+- name: variables from prompt
+  hosts: localhost
+  vars_prompt:
+  - name: USERNAME
+    prompt: Please enter your name
+    private: false
+  - name: PASSWORD
+    prompt: Please enter your password
+    private: True
+  tasks:
+  - name: print information
+    ansbible.builtin.debug:
+      msg: "Hi, username {{USERNAME}}, password is {{PASSWORD}}"
+      

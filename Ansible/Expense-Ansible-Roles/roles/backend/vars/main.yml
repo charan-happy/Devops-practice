@@ -1,0 +1,6 @@
+login_user: root 
+login_host: db.nagacharan.site
+login_password: ExpenseApp@1
+DB_HOST: db.nagacharan.site
+app_location: /app
+component: backend

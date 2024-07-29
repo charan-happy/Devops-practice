@@ -1,0 +1,10 @@
+- name: variables from inventory
+  hosts: localhost
+  tasks:
+  - name: print information
+    vars: 
+      timings: "07:15AM IST"
+    ansible.builitn.dnf:
+      msg: "Hi, we are learning {{course}} course from trainer {{Trainer}} with duration of {{Duration}} and Timings are {{Timings}}"
+
+      

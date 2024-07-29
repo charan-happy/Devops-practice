@@ -1,0 +1,6 @@
+- name: variables from args
+  hosts: localhost
+  tasks:
+  - name: get variable from args
+    ansible.builitn.dnf:
+      msg: "Hi {{PERSON}}, wishing you {{WISHES}}"

@@ -1,0 +1,13 @@
+- name: provision EC2 instance
+  hosts: localhost
+  tasks:
+  - name: Launch EC2 instance 
+    ec2_instance:
+      key_name: mykey
+      instance_type: t2.micro
+      image: ami-2345
+      region: us-west-2
+      count: 1
+      state: present
+    register: ec2
+    

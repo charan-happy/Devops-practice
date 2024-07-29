@@ -1,0 +1,16 @@
+- name: variables at task level
+  hosts: localhost
+  vars:
+    course: Ansible
+    Duration: 1 month
+    Trainer: Nagacharan
+  tasks:
+  - name: print information
+    vars:
+      course: "Terraform"
+    ansible.builtin.dnf:
+      msg: "I am learning {{course}} course from Trainer {{Trainer}} with duration of {{Duration}}"
+
+  - name: print information
+    ansible.builtin.dnf:
+      msg: "I am learning {{course}} course from Trainer {{Trainer}} with duration of {{Duration}}"

@@ -1,0 +1,3 @@
+BACKEND_API_URL: backend.nagacharan.site
+component: frontend
+app_location: /usr/share/nginx/html

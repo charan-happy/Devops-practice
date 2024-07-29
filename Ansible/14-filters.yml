@@ -1,0 +1,60 @@
+- name: default value
+  hosts: localhost
+  tasks:
+  - name: print default value
+    ansible.builtin.debug:
+      msg: "Hello, {{course | default('Ansible') }}"
+
+  
+- name: uppercase
+  hosts: localhost
+  vars: 
+    greetings: "Hello, Good Morning!"
+  tasks:
+  - name: convert into uppercase
+    ansible.builtin.dnf:
+      msg: "{{ greetings | upper }}"
+
+- name: lowercase
+  hosts: localhost
+  vars: 
+    greetings: "Hello, Good Morning!"
+  tasks:
+  - name: convert into lowercase
+    ansible.builtin.dnf:
+      msg: "{{ greetings | lower }}"
+
+- name: Remove duplicates
+  hosts: localhost
+  vars: 
+    numbers: [1,2,2,3,4,4,5]
+  tasks:
+  - name: remove duplicates
+    ansible.builtin.debug:
+      msg: "{{ numbers | unique }}"
+
+- name: Min and Max
+  hosts: localhost
+  vars: 
+    numbers: [1,2,3,4,5,6]
+    ansible.builtin.debug:
+      msg: "{{ numbers | min }}, max {{ numbers | max }}"
+
+- name: convert dictionary into items/list 
+  hosts: localhost
+  vars: 
+    my_dict: 
+      course: ansible
+      Trainer: charan
+      Duration: 110 hours
+
+  tasks:
+  - name: before convert 
+    ansible.builtin.dnf:
+      msg: "Before convert: {{ my_dict }}"
+  
+  - name: after convert 
+    ansible.builtin.dnf: 
+      msg: "After convert: {{ my_dict | dict2items }}"
+
+  

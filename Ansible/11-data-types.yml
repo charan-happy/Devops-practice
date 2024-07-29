@@ -1,0 +1,17 @@
+- name: data-types 
+  hosts: localhost
+  vars: 
+    course: Devops with Charan #string
+    Tools: #list
+    - Linux
+    - Shell
+    - Ansible
+    Experience: #map/dictionary
+      Devops: 3 #number
+      AWS: 2
+      Docker: 1
+    RealProject: true #boolean
+  tasks:
+  - name: print variable
+    ansbible.builtin.dnf:
+      msg: "Course: {{course}}, Tools covered: {{Tools}}, Experience is: {{Experience}}, is realproject: {{RealProject}}"

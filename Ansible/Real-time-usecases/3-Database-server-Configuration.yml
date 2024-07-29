@@ -1,0 +1,24 @@
+- name: Configure PostgreSQL Database Server 
+  hosts: db-server
+  tasks:
+  - name: Install PostgreSQL Database Server
+    apt: 
+      name: postgresql
+      state: present 
+  
+  - name: Configuring PostgreSQL Authentication
+    template:
+      src: pg_hba.conf.j2
+      dest: /etc/postgresql/12/main/pg_hba.conf
+      owner: postgres
+      group: postgres
+      mode: '0640'
+    notify:
+      - Restart PostgreSQL
+
+  handlers:
+  - name: Restart PostgreSQL
+    service:
+      name: postgresql
+      state: restarted
+      

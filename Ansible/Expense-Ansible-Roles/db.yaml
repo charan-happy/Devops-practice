@@ -1,0 +1,7 @@
+- name: configure DB server
+  hosts: db
+  vars_files:
+  - credentials.yml
+  become: yes
+  roles:
+  - db

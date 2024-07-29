@@ -1,0 +1,8 @@
+- name: variables from variables files
+  hosts: localhost
+  vars_files:
+  - vars.yaml
+  tasks:
+  - name: print information
+    ansbible.builtin.dnf:
+      msg: "Hi, I am learning {{courese}} from Trainer {{Trainer}} with a duration of {{Duration}}"
