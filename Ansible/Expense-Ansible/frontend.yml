@@ -3,7 +3,7 @@
   hosts: frontend
   tasks:
   - name: install nginx server
-    ansible.builting.dnf:
+    ansible.builtin.dnf:
       name: nginx
       state: latest
 
